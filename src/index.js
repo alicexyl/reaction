@@ -8,10 +8,10 @@ import App from './components/App';
 import './index.css';
 
 
-const store = createStore(rootReducer);
-
-console.log('store.getState()', store.getState());
-store.subscribe(() => console.log('store.getState()', store.getState()));
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const pubsub = new PubSub();
 
