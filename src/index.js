@@ -19,15 +19,9 @@ pubsub.addListener({
     message: messageObject => {
         const { message, channel } = messageObject;
 
-        console.log("Received message", message, 'channel: ', channel);
-
         store.dispatch(message);
     }
 });
-
-setTimeout(() => {
-    pubsub.publish({ type: 'foo', value: 'far' });
-}, 1000);
 
 ReactDOM.render(
     <Provider store={store}>
